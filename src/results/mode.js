@@ -103,7 +103,7 @@ const ParseRules = {
   NullValue: [t('Keyword', 'keyword')],
   ListValue: [p('['), list('Value', p(',')), p(']')],
   ObjectValue: [p('{'), list('ObjectField', p(',')), p('}')],
-  ObjectField: [t('String', 'property'), p(':'), 'Value'],
+  ObjectField: [name('String', 'property'), p(':'), 'Value'],
 };
 
 // A Name Token which will decorate the state with a `name`.
