@@ -105,3 +105,14 @@ const ParseRules = {
   ObjectValue: [p('{'), list('ObjectField', p(',')), p('}')],
   ObjectField: [t('String', 'property'), p(':'), 'Value'],
 };
+
+// A Name Token which will decorate the state with a `name`.
+function name(kind: string, style: string): Rule {
+  return {
+    style,
+    match: (token: Token) => token.kind === kind,
+    update(state: State, token: Token) {
+      state.name = token.value;
+    },
+  };
+}
