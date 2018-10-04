@@ -103,10 +103,23 @@ var ParseRules = {
   },
 
   NumberValue: [(0, _graphqlLanguageServiceParser.t)('Number', 'number')],
-  StringValue: [(0, _graphqlLanguageServiceParser.t)('String', 'string')],
+  StringValue: [name('string')],
   BooleanValue: [(0, _graphqlLanguageServiceParser.t)('Keyword', 'builtin')],
   NullValue: [(0, _graphqlLanguageServiceParser.t)('Keyword', 'keyword')],
   ListValue: [(0, _graphqlLanguageServiceParser.p)('['), (0, _graphqlLanguageServiceParser.list)('Value', (0, _graphqlLanguageServiceParser.p)(',')), (0, _graphqlLanguageServiceParser.p)(']')],
   ObjectValue: [(0, _graphqlLanguageServiceParser.p)('{'), (0, _graphqlLanguageServiceParser.list)('ObjectField', (0, _graphqlLanguageServiceParser.p)(',')), (0, _graphqlLanguageServiceParser.p)('}')],
-  ObjectField: [(0, _graphqlLanguageServiceParser.t)('String', 'property'), (0, _graphqlLanguageServiceParser.p)(':'), 'Value']
+  ObjectField: [name('property'), (0, _graphqlLanguageServiceParser.p)(':'), 'Value']
 };
+
+// A Name Token which will decorate the state with a `name`.
+function name(style) {
+  return {
+    style: style,
+    match: function match(token) {
+      return token.kind !== 'Punctuation';
+    },
+    update: function update(state, token) {
+      state.name = token.value;
+    }
+  };
+}
