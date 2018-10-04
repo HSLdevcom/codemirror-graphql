@@ -98,7 +98,7 @@ const ParseRules = {
     }
   },
   NumberValue: [t('Number', 'number')],
-  StringValue: [t('String', 'string')],
+  StringValue: [name('String', 'string')],
   BooleanValue: [t('Keyword', 'builtin')],
   NullValue: [t('Keyword', 'keyword')],
   ListValue: [p('['), list('Value', p(',')), p(']')],
