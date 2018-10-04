@@ -98,19 +98,19 @@ const ParseRules = {
     }
   },
   NumberValue: [t('Number', 'number')],
-  StringValue: [name('StringValue', 'string')],
+  StringValue: [name('string')],
   BooleanValue: [t('Keyword', 'builtin')],
   NullValue: [t('Keyword', 'keyword')],
   ListValue: [p('['), list('Value', p(',')), p(']')],
   ObjectValue: [p('{'), list('ObjectField', p(',')), p('}')],
-  ObjectField: [name('ObjectField', 'property'), p(':'), 'Value'],
+  ObjectField: [name('property'), p(':'), 'Value'],
 };
 
 // A Name Token which will decorate the state with a `name`.
-function name(kind: string, style: string): Rule {
+function name(style: string): Rule {
   return {
     style,
-    match: (token: Token) => token.kind === kind,
+    match: (token: Token) => token.kind !== 'Punctuation',
     update(state: State, token: Token) {
       state.name = token.value;
     },
