@@ -113,6 +113,8 @@ function showPopup(cm, box, info, mousePos) {
     parseFloat(popupStyle.marginTop) +
     parseFloat(popupStyle.marginBottom);
 
+  console.log(mousePos);
+  console.log(box);
   let topPos = mousePos.x; /*box.bottom;
   if (
     popupHeight > window.innerHeight - box.bottom - 15 &&
