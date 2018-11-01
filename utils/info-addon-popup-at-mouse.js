@@ -108,7 +108,7 @@ function showPopup(cm, box, info, mousePos) {
 
   console.log(mousePos);
   console.log(box);
-  var topPos = mousePos.x; /*box.bottom;
+  var topPos = mousePos.y; /*box.bottom;
                            if (
                            popupHeight > window.innerHeight - box.bottom - 15 &&
                            box.top > window.innerHeight - box.bottom
