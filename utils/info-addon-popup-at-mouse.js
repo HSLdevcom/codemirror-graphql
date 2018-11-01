@@ -6,7 +6,7 @@ var _codemirror2 = _interopRequireDefault(_codemirror);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_codemirror2.default.defineOption('info-at-mouse', false, function (cm, options, old) {
+_codemirror2.default.defineOption('info', false, function (cm, options, old) {
   if (old && old !== _codemirror2.default.Init) {
     var oldOnMouseOver = cm.state.info.onMouseOver;
     _codemirror2.default.off(cm.getWrapperElement(), 'mouseover', oldOnMouseOver);
