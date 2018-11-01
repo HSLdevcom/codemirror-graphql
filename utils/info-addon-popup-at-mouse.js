@@ -7,8 +7,6 @@ var _codemirror2 = _interopRequireDefault(_codemirror);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _codemirror2.default.defineOption('info', false, function (cm, options, old) {
-  console.log('Defining option \"info\"');
-
   if (old && old !== _codemirror2.default.Init) {
     var oldOnMouseOver = cm.state.info.onMouseOver;
     _codemirror2.default.off(cm.getWrapperElement(), 'mouseover', oldOnMouseOver);
@@ -98,8 +96,6 @@ function onMouseHover(cm, box, mousePos) {
 }
 
 function showPopup(cm, box, info, mousePos) {
-  console.log("Showing popup");
-
   var popup = document.createElement('div');
   popup.className = 'CodeMirror-info';
   popup.appendChild(info);

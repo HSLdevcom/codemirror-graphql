@@ -10,8 +10,6 @@
 import CodeMirror from 'codemirror';
 
 CodeMirror.defineOption('info', false, function(cm, options, old) {
-  console.log('Defining option \"info\"');
-
   if (old && old !== CodeMirror.Init) {
     const oldOnMouseOver = cm.state.info.onMouseOver;
     CodeMirror.off(cm.getWrapperElement(), 'mouseover', oldOnMouseOver);
@@ -97,8 +95,6 @@ function onMouseHover(cm, box, mousePos) {
 }
 
 function showPopup(cm, box, info, mousePos) {
-  console.log("Showing popup");
-
   const popup = document.createElement('div');
   popup.className = 'CodeMirror-info';
   popup.appendChild(info);
