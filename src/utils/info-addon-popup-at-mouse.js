@@ -9,7 +9,7 @@
 
 import CodeMirror from 'codemirror';
 
-CodeMirror.defineOption('info-at-mouse', false, function(cm, options, old) {
+CodeMirror.defineOption('info', false, function(cm, options, old) {
   if (old && old !== CodeMirror.Init) {
     const oldOnMouseOver = cm.state.info.onMouseOver;
     CodeMirror.off(cm.getWrapperElement(), 'mouseover', oldOnMouseOver);
