@@ -106,22 +106,14 @@ function showPopup(cm, box, info, mousePos) {
   var popupWidth = popupBox.right - popupBox.left + parseFloat(popupStyle.marginLeft) + parseFloat(popupStyle.marginRight);
   var popupHeight = popupBox.bottom - popupBox.top + parseFloat(popupStyle.marginTop) + parseFloat(popupStyle.marginBottom);
 
-  console.log(mousePos);
-  console.log(box);
-  var topPos = mousePos.y; /*box.bottom;
-                           if (
-                           popupHeight > window.innerHeight - box.bottom - 15 &&
-                           box.top > window.innerHeight - box.bottom
-                           ) {
-                           topPos = box.top - popupHeight;
-                           }
-                           if (topPos < 0) {
-                           topPos = box.bottom;
-                           }*/
+  var topPos = mousePos.y;
+  if (topPos + popupHeight > window.innerHeight) {
+    topPos = topPos - popupHeight;
+  }
 
-  var leftPos = Math.max(0, window.innerWidth - popupWidth - 15);
-  if (leftPos > box.left) {
-    leftPos = box.left;
+  var leftPos = mousePos.x;
+  if (leftPos + popupWidth > window.innerWidth) {
+    leftPos = leftPos - popupWidth;
   }
 
   popup.style.opacity = 1;
